@@ -1,8 +1,8 @@
 -- Assignment # 3
 -- CCCS 330 - Database Design & Business Application Development
--- MíHand Kedjar
+-- M‚ÄôHand Kedjar
 
--- Part A: TinyVideo is a small movie rental company with a single store. TinyVideo needs a database system to track the rental of movies to its members. TinyVideo can own several copies (VIDEO) of each movie (MOVIE). For example, the store may have 10 copies of the movie ìTwist in the Windî. ìTwist in the Windî would be one MOVIE and each copy would be a VIDEO. A rental transaction (RENTAL) involves one or more videos being rented to a member (MEMBERSHIP). A video can be rented many times over its lifetime, therefore, there is a M:N relationship between RENTAL and VIDEO. DETAILRENTAL is the bridge table to resolve this relationship. The complete ERD is provided below
+-- Part A: TinyVideo is a small movie rental company with a single store. TinyVideo needs a database system to track the rental of movies to its members. TinyVideo can own several copies (VIDEO) of each movie (MOVIE). For example, the store may have 10 copies of the movie ‚ÄúTwist in the Wind‚Äù. ‚ÄúTwist in the Wind‚Äù would be one MOVIE and each copy would be a VIDEO. A rental transaction (RENTAL) involves one or more videos being rented to a member (MEMBERSHIP). A video can be rented many times over its lifetime, therefore, there is a M:N relationship between RENTAL and VIDEO. DETAILRENTAL is the bridge table to resolve this relationship. The complete ERD is provided below
 
 -- 1. Write the SQL code to create the table structures for the entities shown in Figure below. The structures should contain the attributes specified in the ERD. Use data types that would be appropriate for the data that will need to be stored in each attribute. Enforce primary key and foreign key constraints as indicated by the ERD.
 CREATE TABLE MEMBERSHIP(
@@ -158,7 +158,7 @@ SELECT MOVIE_YEAR, MOVIE_TITLE, MOVIE_COST
 FROM MOVIE
 ORDER BY MOVIE_YEAR DESC;
 
--- 7. Write a query to display the movie title, movie year, and movie cost for all movies that contain the word ìhopeî anywhere in the title. Sort the results in ascending order by title (result shown in figure below).
+-- 7. Write a query to display the movie title, movie year, and movie cost for all movies that contain the word ‚Äúhope‚Äù anywhere in the title. Sort the results in ascending order by title (result shown in figure below).
 SELECT MOVIE_YEAR, MOVIE_TITLE, MOVIE_COST
 FROM MOVIE
 WHERE LOWER(MOVIE_TITLE) LIKE '%hope%'
@@ -213,18 +213,18 @@ WHERE MEMBERSHIP.MEM_NUM = RENTAL.MEM_NUM
 AND RENTAL.RENT_NUM = DETAILRENTAL.RENT_NUM 
 GROUP BY MEMBERSHIP.MEM_NUM, MEM_FNAME, MEM_LNAME;
 
--- PART B: The following problems expand on the Tiny Video case from Part A. To complete the following problems, it is necessary to have first completed the table creation and data entry requirements specified in Problems 1 and 2 in part A. After each command 15 ñ 19 please have a display to show the results
+-- PART B: The following problems expand on the Tiny Video case from Part A. To complete the following problems, it is necessary to have first completed the table creation and data entry requirements specified in Problems 1 and 2 in part A. After each command 15 ‚Äì 19 please have a display to show the results
 -- 15. Alter the DETAILRENTAL table to include a derived attribute named DETAIL_DAYSLATE to store integers up to 3 digits. The attribute should accept null values.
 ALTER TABLE DETAILRENTAL
 ADD (DETAIL_DAYSLATE NUMBER(3,0));
 
--- 16. Alter the VIDEO table to include an attribute named VID_STATUS to store character data up to 4 characters long. The attribute should not accept null values. The attribute should have a constraint to enforce the domain (ìINî, ìOUTî, and ìLOSTî), and have a default value of ìINî.
+-- 16. Alter the VIDEO table to include an attribute named VID_STATUS to store character data up to 4 characters long. The attribute should not accept null values. The attribute should have a constraint to enforce the domain (‚ÄúIN‚Äù, ‚ÄúOUT‚Äù, and ‚ÄúLOST‚Äù), and have a default value of ‚ÄúIN‚Äù.
 ALTER TABLE VIDEO
 ADD (VID_STATUS VARCHAR(4) 
 DEFAULT 'IN' NOT NULL 
 CHECK(VID_STATUS IN ('IN', 'OUT', 'LOST')));
 
--- 17. Update the VID_STATUS attribute of the VIDEO table using a sub query to set the VID_STATUS to ìOUTî for all videos that have a null value in the DETAIL_RETURNDATE attribute of the DETAILRENTAL table.
+-- 17. Update the VID_STATUS attribute of the VIDEO table using a sub query to set the VID_STATUS to ‚ÄúOUT‚Äù for all videos that have a null value in the DETAIL_RETURNDATE attribute of the DETAILRENTAL table.
 UPDATE VIDEO
 SET VID_STATUS = 'OUT'
 WHERE VIDEO.VID_NUM IN(
@@ -293,7 +293,7 @@ SELECT * FROM RENTAL
 ORDER BY RENT_NUM;
 
 --22 Some transactions done by myself. 
--- In the following, Iím inserting some data about myself as a member. After each query, we do a select to make sure all the data are correctly inserted. 
+-- In the following, I‚Äôm inserting some data about myself as a member. After each query, we do a select to make sure all the data are correctly inserted. 
 INSERT INTO 
 MEMBERSHIP(MEM_NUM, MEM_FNAME, MEM_LNAME, MEM_STREET, MEM_CITY, MEM_STATE, MEM_ZIP, MEM_BALANCE)
 VALUES(100,'M''Hand','Kedjar','5-1825 Daniel Street','Longueuil','QC','00000',32);
