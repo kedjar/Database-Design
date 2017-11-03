@@ -1,6 +1,6 @@
 -- Assignment # 4
 -- CCCS 330 - Database Design & Business Application Development
--- M’Hand Kedjar
+-- Mâ€™Hand Kedjar
 
 -- STEP 1 & 2
 -----------------------------------------------------------------------------------------
