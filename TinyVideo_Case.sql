@@ -1,6 +1,6 @@
 -- Assignment # 3
 -- CCCS 330 - Database Design & Business Application Development
--- M’Hand Kedjar
+-- M’Hand Kedjar 
 
 -- Part A: TinyVideo is a small movie rental company with a single store. TinyVideo needs a database system to track the rental of movies to its members. TinyVideo can own several copies (VIDEO) of each movie (MOVIE). For example, the store may have 10 copies of the movie “Twist in the Wind”. “Twist in the Wind” would be one MOVIE and each copy would be a VIDEO. A rental transaction (RENTAL) involves one or more videos being rented to a member (MEMBERSHIP). A video can be rented many times over its lifetime, therefore, there is a M:N relationship between RENTAL and VIDEO. DETAILRENTAL is the bridge table to resolve this relationship. The complete ERD is provided below
 
